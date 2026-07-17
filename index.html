@@ -1,0 +1,5325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Teske Capital is a private investment firm focused on disciplined long-term exposure to equities, digital assets, treasury securities, and strategic alternatives."
+    >
+
+    <meta name="theme-color" content="#080808">
+
+    <title>Teske Capital | Private Investment Firm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --red: #df2638;
+            --red-light: #f24859;
+            --red-dark: #961322;
+
+            --black: #050506;
+            --black-soft: #09090b;
+            --panel: #101013;
+            --panel-light: #17171b;
+            --panel-lighter: #1d1d22;
+
+            --white: #f5f5f7;
+            --silver: #c8c8ce;
+            --gray: #92929a;
+            --gray-dark: #6b6b73;
+
+            --border: rgba(255, 255, 255, 0.1);
+            --border-strong: rgba(255, 255, 255, 0.17);
+
+            --shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+
+            --container: 1320px;
+            --header-height: 94px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            background: var(--black);
+            color: var(--white);
+
+            font-family: "Inter", sans-serif;
+            line-height: 1.6;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+        .hidden {
+    display: none !important;
+}
+
+        section {
+            scroll-margin-top: calc(var(--header-height) + 20px);
+        }
+
+        .container {
+            width: min(
+                calc(100% - 40px),
+                var(--container)
+            );
+
+            margin-inline: auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 20px;
+
+            color: var(--red-light);
+
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.19em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 30px;
+            height: 1px;
+
+            background: var(--red);
+        }
+
+        .section-heading {
+            max-width: 820px;
+        }
+
+        .section-heading.centered {
+            margin-inline: auto;
+            text-align: center;
+        }
+
+        .section-heading.centered .eyebrow {
+            justify-content: center;
+        }
+
+        .section-heading h2 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2.4rem, 5vw, 4.8rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 1.02;
+        }
+
+        .section-heading p:last-child {
+            max-width: 700px;
+            margin-top: 24px;
+
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .section-heading.centered p:last-child {
+            margin-inline: auto;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 52px;
+            padding: 0 24px;
+
+            border: 1px solid transparent;
+            border-radius: 4px;
+
+            font-size: 0.9rem;
+            font-weight: 800;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--red-light),
+                    var(--red-dark)
+                );
+
+            box-shadow:
+                0 15px 38px rgba(223, 38, 56, 0.24);
+        }
+
+        .button-primary:hover {
+            box-shadow:
+                0 18px 48px rgba(223, 38, 56, 0.36);
+        }
+
+        .button-secondary {
+            border-color: var(--border-strong);
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .button-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.065);
+        }
+
+        .button-light {
+            color: #111114;
+            background: #ffffff;
+        }
+
+        .button-light:hover {
+            background: #ededf0;
+        }
+
+        .button-arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .button:hover .button-arrow {
+            transform: translateX(4px);
+        }
+
+        .top-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1100;
+
+            width: 100%;
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--red),
+                    var(--red-light),
+                    var(--red),
+                    transparent
+                );
+        }
+
+        /* Header */
+
+        .site-header {
+            position: fixed;
+            top: 3px;
+            left: 0;
+            z-index: 1000;
+
+            width: 100%;
+
+            border-bottom: 1px solid var(--border);
+
+            background: rgba(6, 6, 7, 0.88);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .header-inner {
+            min-height: var(--header-height);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 34px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            flex: 0 1 330px;
+
+            min-width: 0;
+        }
+
+        .brand img {
+            display: block;
+
+            width: min(100%, 310px);
+            height: 66px;
+
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 29px;
+        }
+
+        .main-nav a:not(.nav-cta) {
+            position: relative;
+
+            color: #c8c8ce;
+
+            font-size: 0.88rem;
+            font-weight: 700;
+
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:not(.nav-cta)::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--red);
+
+            transition: width 0.2s ease;
+        }
+
+        .main-nav a:not(.nav-cta):hover {
+            color: #ffffff;
+        }
+
+        .main-nav a:not(.nav-cta):hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            min-height: 44px;
+            padding: 0 18px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid rgba(223, 38, 56, 0.65);
+            border-radius: 4px;
+
+            background:
+                rgba(223, 38, 56, 0.08);
+
+            font-size: 0.84rem;
+            font-weight: 800;
+        }
+
+        .nav-cta:hover {
+            background:
+                rgba(223, 38, 56, 0.18);
+        }
+
+        .menu-toggle {
+            position: relative;
+            z-index: 4;
+
+            display: none;
+
+            width: 46px;
+            height: 46px;
+
+            flex: 0 0 auto;
+
+            border: 1px solid var(--border-strong);
+            border-radius: 4px;
+
+            background: transparent;
+
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            position: absolute;
+            left: 11px;
+
+            width: 22px;
+            height: 2px;
+
+            background: #ffffff;
+
+            transition:
+                top 0.25s ease,
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .menu-toggle span:nth-child(1) {
+            top: 14px;
+        }
+
+        .menu-toggle span:nth-child(2) {
+            top: 21px;
+        }
+
+        .menu-toggle span:nth-child(3) {
+            top: 28px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            top: 21px;
+            transform: rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            top: 21px;
+            transform: rotate(-45deg);
+        }
+
+        /* Hero */
+.market-background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    opacity: 0.9;
+}
+
+.hero-market-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 6, 0.12) 0%,
+            rgba(5, 5, 6, 0.02) 48%,
+            rgba(5, 5, 6, 0.18) 100%
+        ),
+        linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(5, 5, 6, 0.08) 65%,
+            rgba(5, 5, 6, 0.28) 100%
+        );
+}
+
+        .hero {
+            position: relative;
+
+            min-height: 860px;
+            padding-top: calc(var(--header-height) + 95px);
+            padding-bottom: 100px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            border-bottom: 1px solid var(--border);
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(223, 38, 56, 0.13),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 12% 86%,
+                    rgba(120, 120, 130, 0.07),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    145deg,
+                    #070708,
+                    #0c090a 55%,
+                    #12090b
+                );
+        }
+
+.hero::before {
+    content: none;
+}
+
+        .hero-layout {
+            position: relative;
+            z-index: 3;
+
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.14fr)
+                minmax(350px, 0.76fr);
+
+            align-items: center;
+            gap: clamp(50px, 7vw, 105px);
+        }
+
+        .hero-copy {
+            min-width: 0;
+        }
+
+        .hero h1 {
+            max-width: 820px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(3.8rem, 7vw, 7.1rem);
+            font-weight: 800;
+            letter-spacing: -0.065em;
+            line-height: 0.94;
+        }
+
+        .hero h1 .gray {
+            color: #98989f;
+        }
+
+        .hero h1 .red {
+            color: var(--red);
+        }
+
+        .hero-description {
+            max-width: 690px;
+            margin-top: 30px;
+
+            color: #b7b7bd;
+
+            font-size: clamp(1rem, 1.3vw, 1.17rem);
+            line-height: 1.78;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+
+            margin-top: 36px;
+        }
+
+        .hero-details {
+            max-width: 760px;
+            margin-top: 56px;
+            padding-top: 26px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-details strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            font-size: 0.96rem;
+        }
+
+        .hero-details span {
+            display: block;
+
+            color: var(--gray-dark);
+
+            font-size: 0.78rem;
+        }
+
+        .hero-panel {
+            position: relative;
+
+            min-width: 0;
+            padding: clamp(28px, 4vw, 44px);
+
+            border: 1px solid var(--border-strong);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.07),
+                    rgba(255, 255, 255, 0.015)
+                ),
+                #0e0e11;
+
+            box-shadow: var(--shadow);
+        }
+
+        .hero-panel::before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 3px;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--red-light),
+                    var(--red),
+                    transparent 85%
+                );
+        }
+
+        .panel-label {
+            color: #7e7e86;
+
+            font-size: 0.71rem;
+            font-weight: 800;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+        }
+
+        .hero-panel h2 {
+            margin-top: 18px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            letter-spacing: -0.04em;
+            line-height: 1.13;
+        }
+
+        .hero-panel > p {
+            margin-top: 18px;
+
+            color: #9c9ca4;
+
+            font-size: 0.92rem;
+        }
+
+        .mandate-list {
+            margin-top: 30px;
+
+            display: grid;
+            gap: 14px;
+        }
+
+        .mandate-item {
+            display: grid;
+            grid-template-columns: 32px 1fr;
+            gap: 12px;
+
+            align-items: start;
+        }
+
+        .mandate-number {
+            color: var(--red);
+
+            font-size: 0.76rem;
+            font-weight: 800;
+        }
+
+        .mandate-item strong {
+            display: block;
+
+            margin-bottom: 2px;
+
+            font-size: 0.88rem;
+        }
+
+        .mandate-item span {
+            color: var(--gray);
+
+            font-size: 0.78rem;
+        }
+
+        /* Ticker */
+
+        .ticker {
+            overflow: hidden;
+
+            border-bottom: 1px solid var(--border);
+
+            background: #08080a;
+        }
+
+        .ticker-track {
+            width: max-content;
+
+            display: flex;
+
+            animation: tickerMove 34s linear infinite;
+        }
+
+        .ticker:hover .ticker-track {
+            animation-play-state: paused;
+        }
+
+        .ticker-group {
+            display: flex;
+        }
+
+        .ticker-item {
+            min-width: 190px;
+            padding: 20px 26px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .ticker-symbol {
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+
+        .ticker-type {
+            color: var(--gray-dark);
+
+            font-size: 0.65rem;
+            text-transform: uppercase;
+        }
+
+        .ticker-dot {
+            width: 6px;
+            height: 6px;
+
+            flex: 0 0 auto;
+
+            border-radius: 50%;
+
+            background: var(--red);
+
+            box-shadow: 0 0 12px var(--red);
+        }
+
+        @keyframes tickerMove {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Shared sections */
+
+        .section {
+            padding: 120px 0;
+        }
+/* Model Portfolio Performance */
+
+.performance {
+    position: relative;
+    overflow: hidden;
+
+    border-bottom: 1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(223, 38, 56, 0.11),
+            transparent 27%
+        ),
+        linear-gradient(
+            145deg,
+            #0b0b0d,
+            #070708
+        );
+}
+
+.performance::before {
+    content: "TC";
+
+    position: absolute;
+    top: 50%;
+    right: 5%;
+
+    color: rgba(255, 255, 255, 0.022);
+
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(12rem, 27vw, 28rem);
+    font-weight: 800;
+    letter-spacing: -0.12em;
+    line-height: 1;
+
+    pointer-events: none;
+
+    transform: translateY(-52%);
+}
+
+.performance-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.performance-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.performance-header-copy {
+    max-width: 800px;
+}
+
+.performance-header h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.02;
+}
+
+.performance-header-description {
+    max-width: 650px;
+    margin-top: 22px;
+
+    color: var(--gray);
+}
+
+.performance-status {
+    flex: 0 0 auto;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 10px 14px;
+
+    border: 1px solid rgba(223, 38, 56, 0.28);
+    border-radius: 100px;
+
+    color: var(--red-light);
+
+    background: rgba(223, 38, 56, 0.07);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.performance-status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    box-shadow: 0 0 13px rgba(223, 38, 56, 0.8);
+}
+
+.performance-grid {
+    margin-top: 58px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.performance-card {
+    position: relative;
+
+    min-width: 0;
+    min-height: 180px;
+    padding: 25px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.012)
+        ),
+        #101013;
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease;
+}
+
+.performance-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(223, 38, 56, 0.42);
+}
+
+.performance-card.primary {
+    border-color: rgba(223, 38, 56, 0.36);
+
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(223, 38, 56, 0.14),
+            transparent 42%
+        ),
+        linear-gradient(
+            145deg,
+            #171317,
+            #0e0e11
+        );
+}
+
+.performance-label {
+    display: block;
+
+    color: var(--gray-dark);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.performance-value {
+    display: block;
+
+    margin-top: 18px;
+
+    overflow-wrap: anywhere;
+
+    color: var(--white);
+
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+}
+
+.performance-detail {
+    display: block;
+
+    margin-top: 9px;
+
+    color: var(--gray);
+
+    font-size: 0.76rem;
+}
+
+.performance-positive {
+    color: #42d392 !important;
+}
+
+.performance-negative {
+    color: var(--red-light) !important;
+}
+
+.performance-neutral {
+    color: var(--white) !important;
+}
+
+.performance-disclaimer {
+    margin-top: 28px;
+    padding-top: 23px;
+
+    border-top: 1px solid var(--border);
+
+    color: #66666e;
+
+    font-size: 0.68rem;
+    line-height: 1.75;
+}
+
+.performance-empty {
+    margin-top: 58px;
+    padding: 35px;
+
+    border: 1px solid var(--border);
+
+    color: var(--gray);
+
+    background: rgba(255, 255, 255, 0.018);
+
+    text-align: center;
+}
+
+.performance-empty strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--silver);
+
+    font-size: 1rem;
+}
+        /* Track Record */
+
+.track-record{
+
+    margin-top:60px;
+
+    padding-top:35px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.track-record-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:20px;
+
+    margin-bottom:28px;
+
+}
+
+.track-record-header h3{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:1.85rem;
+
+    font-weight:800;
+
+    letter-spacing:-0.04em;
+
+}
+
+.track-record-header span{
+
+    color:var(--gray);
+
+    font-size:.82rem;
+
+    font-style:italic;
+
+    letter-spacing:.02em;
+
+    font-weight:500;
+
+}
+
+.track-record-grid{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:0;
+
+}
+
+.track-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:24px 10px;
+
+    border-bottom:1px solid var(--border);
+
+    transition:.25s;
+
+}
+
+.track-card:hover{
+
+    background:rgba(255,255,255,.02);
+
+}
+
+.track-year{
+
+    color:var(--silver);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+}
+
+.track-return{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:1.6rem;
+
+    font-weight:800;
+
+}
+
+.track-detail{
+
+    display:none;
+
+}
+}
+        /* Approach */
+
+        .approach {
+            background: #0a0a0c;
+        }
+
+        .approach-grid {
+            margin-top: 68px;
+
+            display: grid;
+            grid-template-columns:
+                minmax(0, 0.92fr)
+                minmax(0, 1.08fr);
+
+            gap: clamp(50px, 8vw, 120px);
+        }
+
+        .approach-intro {
+            color: #c4c4ca;
+
+            font-size: clamp(1.08rem, 1.8vw, 1.45rem);
+            line-height: 1.7;
+        }
+
+        .approach-intro p + p {
+            margin-top: 22px;
+        }
+
+        .approach-list {
+            border-top: 1px solid var(--border);
+        }
+
+        .approach-item {
+            padding: 27px 0;
+
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            gap: 18px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-item > span {
+            color: var(--red);
+
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .approach-item h3 {
+            margin-bottom: 7px;
+
+            font-size: 1.04rem;
+        }
+
+        .approach-item p {
+            color: var(--gray);
+
+            font-size: 0.9rem;
+        }
+
+        /* Portfolio */
+
+        .portfolio {
+            background:
+                radial-gradient(
+                    circle at 50% 0,
+                    rgba(223, 38, 56, 0.06),
+                    transparent 25%
+                ),
+                #060607;
+        }
+
+        .asset-grid {
+            max-width: 1240px;
+            margin: 62px auto 0;
+
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .asset-card {
+            position: relative;
+
+            min-width: 0;
+            min-height: 240px;
+            padding: 27px;
+
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #151519,
+                    #0d0d10
+                );
+
+            transition:
+                transform 0.22s ease,
+                border-color 0.22s ease;
+        }
+
+        .asset-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(223, 38, 56, 0.52);
+        }
+
+        .asset-card::after {
+            content: "";
+
+            position: absolute;
+            right: -60px;
+            bottom: -60px;
+
+            width: 150px;
+            height: 150px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(223, 38, 56, 0.09);
+
+            filter: blur(10px);
+        }
+
+        .asset-icon {
+            position: relative;
+            z-index: 2;
+
+            min-width: 48px;
+            height: 48px;
+            padding-inline: 10px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid rgba(223, 38, 56, 0.38);
+
+            background:
+                rgba(223, 38, 56, 0.08);
+
+            color: var(--red-light);
+
+            font-family: "Manrope", sans-serif;
+            font-weight: 800;
+        }
+
+        .asset-category {
+            position: relative;
+            z-index: 2;
+
+            margin-top: 35px;
+
+            color: #73737b;
+
+            font-size: 0.67rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .asset-card h3 {
+            position: relative;
+            z-index: 2;
+
+            margin-top: 4px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: -0.03em;
+        }
+
+        .asset-description {
+            position: relative;
+            z-index: 2;
+
+            display: block;
+
+            margin-top: 9px;
+
+            color: var(--gray);
+
+            font-size: 0.82rem;
+        }
+
+        /* Principles */
+
+        .principles {
+            background: #0a0a0c;
+        }
+
+        .principles-panel {
+            padding: clamp(34px, 6vw, 72px);
+
+            display: grid;
+            grid-template-columns:
+                minmax(0, 0.84fr)
+                minmax(0, 1.16fr);
+
+            gap: clamp(45px, 8vw, 110px);
+
+            border: 1px solid var(--border);
+
+            background:
+                radial-gradient(
+                    circle at 0 0,
+                    rgba(223, 38, 56, 0.12),
+                    transparent 30%
+                ),
+                #111114;
+        }
+
+        .principles-copy p:last-child {
+            margin-top: 25px;
+
+            color: #a2a2aa;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+
+            background: var(--border);
+        }
+
+        .principle-card {
+            min-width: 0;
+            min-height: 190px;
+            padding: 27px;
+
+            background: #121216;
+        }
+
+        .principle-line {
+            width: 30px;
+            height: 2px;
+
+            margin-bottom: 22px;
+
+            background: var(--red);
+        }
+
+        .principle-card h3 {
+            margin-bottom: 9px;
+
+            font-size: 1rem;
+        }
+
+        .principle-card p {
+            color: var(--gray);
+
+            font-size: 0.86rem;
+        }
+
+        /* Process */
+
+        .process {
+            background: #060607;
+        }
+
+        .process-grid {
+            margin-top: 62px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+
+            background: var(--border);
+        }
+
+        .process-card {
+            min-width: 0;
+            min-height: 260px;
+            padding: 28px;
+
+            background: #101013;
+        }
+
+        .process-number {
+            width: 36px;
+            height: 36px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid rgba(223, 38, 56, 0.48);
+
+            color: var(--red);
+
+            font-size: 0.76rem;
+            font-weight: 800;
+        }
+
+        .process-card h3 {
+            margin-top: 48px;
+            margin-bottom: 9px;
+
+            font-size: 1.06rem;
+        }
+
+        .process-card p {
+            color: var(--gray);
+
+            font-size: 0.86rem;
+        }
+/* Fee Structure */
+
+.fees {
+    position: relative;
+    overflow: hidden;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(223, 38, 56, 0.11),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            #0b0b0d,
+            #070708
+        );
+}
+
+.fees::before {
+    content: "1%";
+
+    position: absolute;
+    top: 50%;
+    right: 4%;
+
+    color: rgba(255, 255, 255, 0.025);
+
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(12rem, 25vw, 27rem);
+    font-weight: 800;
+    letter-spacing: -0.1em;
+    line-height: 1;
+
+    pointer-events: none;
+
+    transform: translateY(-52%);
+}
+
+.fees-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.fees-header {
+    max-width: 850px;
+}
+
+.fees-header h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.02;
+}
+
+.fees-header-description {
+    max-width: 720px;
+    margin-top: 23px;
+
+    color: var(--gray);
+
+    font-size: 0.96rem;
+    line-height: 1.8;
+}
+
+.fee-layout {
+    margin-top: 58px;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 0.82fr)
+        minmax(0, 1.18fr);
+
+    align-items: stretch;
+    gap: 18px;
+}
+
+.fee-primary-card {
+    position: relative;
+
+    min-width: 0;
+    padding: clamp(31px, 5vw, 55px);
+
+    overflow: hidden;
+
+    border: 1px solid rgba(223, 38, 56, 0.38);
+
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(223, 38, 56, 0.18),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            #171317,
+            #0e0e11
+        );
+}
+
+.fee-label {
+    display: block;
+
+    color: var(--red-light);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.fee-rate {
+    display: block;
+
+    margin-top: 24px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(4.8rem, 10vw, 8.5rem);
+    font-weight: 800;
+    letter-spacing: -0.075em;
+    line-height: 0.9;
+}
+
+.fee-rate-detail {
+    display: block;
+
+    margin-top: 18px;
+
+    color: var(--silver);
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.fee-primary-card p {
+    max-width: 560px;
+    margin-top: 23px;
+
+    color: var(--gray);
+
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.fee-details {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.fee-detail-card {
+    min-width: 0;
+    padding: 27px;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.012)
+        ),
+        var(--panel);
+}
+
+.fee-detail-card span {
+    display: block;
+
+    color: var(--red);
+
+    font-size: 0.69rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.fee-detail-card h3 {
+    margin-top: 24px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 1.15rem;
+    letter-spacing: -0.03em;
+}
+
+.fee-detail-card p {
+    margin-top: 10px;
+
+    color: var(--gray);
+
+    font-size: 0.82rem;
+    line-height: 1.75;
+}
+
+.fee-examples {
+    margin-top: 18px;
+
+    border-top: 1px solid var(--border);
+}
+
+.fee-example {
+    padding: 18px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.fee-example span {
+    color: var(--gray);
+
+    font-size: 0.82rem;
+}
+
+.fee-example strong {
+    color: var(--white);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+}
+
+.fee-note {
+    margin-top: 30px;
+    padding: 22px 24px;
+
+    border-left: 3px solid var(--red);
+
+    color: #77777f;
+    background: rgba(223, 38, 56, 0.045);
+
+    font-size: 0.71rem;
+    line-height: 1.75;
+}
+        /* About */
+
+        .about {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0c0c0f,
+                    #111114
+                );
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 0.72fr)
+                minmax(0, 1.28fr);
+
+            align-items: center;
+            gap: clamp(50px, 8vw, 115px);
+        }
+
+        .about-visual {
+            position: relative;
+
+            min-height: 470px;
+
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+
+            background:
+                radial-gradient(
+                    circle at 45% 32%,
+                    rgba(223, 38, 56, 0.18),
+                    transparent 40%
+                ),
+                linear-gradient(
+                    145deg,
+                    #17171b,
+                    #09090b
+                );
+        }
+
+        .about-visual::before {
+            content: "TC";
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            color:
+                rgba(255, 255, 255, 0.055);
+
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(8rem, 17vw, 14rem);
+            font-weight: 800;
+            letter-spacing: -0.1em;
+
+            transform: translate(-52%, -56%);
+        }
+
+        .about-badge {
+            position: absolute;
+            left: 28px;
+            right: 28px;
+            bottom: 28px;
+
+            padding: 19px 21px;
+
+            border: 1px solid var(--border);
+
+            background:
+                rgba(7, 7, 8, 0.82);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .about-badge strong {
+            display: block;
+
+            font-size: 0.95rem;
+        }
+
+        .about-badge span {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--gray);
+
+            font-size: 0.76rem;
+        }
+
+        .about-copy h2 {
+            max-width: 700px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2.4rem, 5vw, 4.7rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 1.03;
+        }
+
+        .about-copy > p {
+            max-width: 700px;
+            margin-top: 23px;
+
+            color: #a6a6ae;
+        }
+
+        .about-points {
+            margin-top: 32px;
+
+            display: grid;
+            gap: 13px;
+        }
+
+        .about-point {
+            display: flex;
+            gap: 13px;
+            align-items: flex-start;
+
+            color: #c9c9ce;
+        }
+
+        .about-point span {
+            width: 7px;
+            height: 7px;
+
+            flex: 0 0 auto;
+
+            margin-top: 9px;
+
+            border-radius: 50%;
+
+            background: var(--red);
+
+            box-shadow:
+                0 0 12px rgba(223, 38, 56, 0.6);
+        }
+
+        /* CTA */
+
+        .cta {
+            position: relative;
+
+            min-height: 470px;
+            padding: 90px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ef3448,
+                    #a60e20
+                );
+        }
+
+        .cta::before,
+        .cta::after {
+            content: "";
+
+            position: absolute;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.16);
+
+            transform: rotate(35deg);
+        }
+
+        .cta::before {
+            top: -260px;
+            left: -190px;
+
+            width: 520px;
+            height: 520px;
+        }
+
+        .cta::after {
+            right: -230px;
+            bottom: -310px;
+
+            width: 650px;
+            height: 650px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 800px;
+        }
+
+        .cta .eyebrow {
+            color: #260107;
+        }
+
+        .cta .eyebrow::before {
+            background: #260107;
+        }
+
+        .cta h2 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 800;
+            letter-spacing: -0.06em;
+            line-height: 0.95;
+        }
+
+        .cta p {
+            max-width: 610px;
+            margin: 23px auto 31px;
+
+            color:
+                rgba(255, 255, 255, 0.84);
+        }
+/* FAQ */
+
+.faq {
+    padding: 110px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(223, 38, 56, 0.08),
+            transparent 28%
+        ),
+        #08080a;
+}
+
+.faq-layout {
+    display: grid;
+    grid-template-columns:
+        minmax(250px, 0.7fr)
+        minmax(0, 1.3fr);
+
+    align-items: start;
+    gap: clamp(50px, 8vw, 110px);
+}
+
+.faq-intro {
+    position: sticky;
+    top: calc(var(--header-height) + 40px);
+}
+
+.faq-intro h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.7rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.02;
+}
+
+.faq-intro p:last-child {
+    max-width: 500px;
+    margin-top: 22px;
+
+    color: var(--gray);
+
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.faq-list {
+    border-top: 1px solid var(--border);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 25px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    color: var(--white);
+
+    cursor: pointer;
+    list-style: none;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-question::after {
+    content: "+";
+
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(223, 38, 56, 0.4);
+    border-radius: 50%;
+
+    color: var(--red-light);
+    background: rgba(223, 38, 56, 0.06);
+
+    font-family: "Inter", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.faq-item[open] .faq-question::after {
+    content: "−";
+
+    transform: rotate(180deg);
+
+    background: rgba(223, 38, 56, 0.14);
+}
+
+.faq-answer {
+    max-width: 760px;
+    padding: 0 65px 25px 0;
+
+    color: var(--gray);
+
+    font-size: 0.91rem;
+    line-height: 1.8;
+}
+
+.faq-answer a {
+    color: var(--red-light);
+    font-weight: 700;
+}
+
+.faq-answer a:hover {
+    color: var(--white);
+}
+        /* Footer */
+
+        .site-footer {
+            padding: 68px 0 28px;
+
+            background: #050506;
+        }
+
+        .footer-main {
+            padding-bottom: 48px;
+
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.15fr)
+                minmax(0, 0.85fr);
+
+            gap: 70px;
+        }
+
+        .footer-brand {
+            min-width: 0;
+        }
+
+        .footer-brand img {
+            display: block;
+
+            width: min(100%, 330px);
+            height: 82px;
+
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .footer-brand p {
+            max-width: 440px;
+            margin-top: 16px;
+
+            color: var(--gray);
+
+            font-size: 0.86rem;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 42px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 17px;
+
+            font-size: 0.85rem;
+        }
+
+        .footer-column a {
+            display: block;
+
+            margin-top: 10px;
+
+            color: var(--gray);
+
+            font-size: 0.83rem;
+        }
+
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+
+        .footer-disclaimer {
+            padding: 25px 0;
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .footer-disclaimer p {
+            color: #66666e;
+
+            font-size: 0.68rem;
+            line-height: 1.75;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+
+            color: #6c6c74;
+
+            font-size: 0.73rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 22px;
+        }
+
+        /* Reveal */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+
+            transition:
+                opacity 0.65s ease,
+                transform 0.65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tablet */
+
+        @media (max-width: 1050px) {
+            :root {
+                --header-height: 86px;
+            }
+
+            .brand {
+                flex-basis: 300px;
+            }
+
+            .brand img {
+                width: min(100%, 285px);
+                height: 62px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                bottom: auto;
+                height: calc(100dvh - var(--header-height) - 3px);
+
+                width: min(360px, 88vw);
+                padding: 30px;
+
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+
+                border-left: 1px solid var(--border);
+
+                background: #070708;
+
+                overflow-y: auto;
+
+                transform: translateX(105%);
+
+                transition: transform 0.3s ease;
+
+                z-index: 9999;
+            }
+
+            .main-nav.open {
+                transform: translateX(0);
+            }
+
+            .main-nav a:not(.nav-cta) {
+                padding: 15px 0;
+
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-cta {
+                min-height: 50px;
+                margin-top: 22px;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-panel {
+                max-width: 720px;
+            }
+
+            .approach-grid,
+            .principles-panel,
+            .about-grid,
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+
+            .asset-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .performance-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.performance-header {
+    align-items: flex-start;
+    flex-direction: column;
+}
+            .track-record-grid {
+    grid-template-columns: 1fr;
+}
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .fee-layout {
+    grid-template-columns: 1fr;
+}
+
+            .about-visual {
+                max-width: 700px;
+            }
+           .faq-layout {
+    grid-template-columns: 1fr;
+}
+
+.faq-intro {
+    position: static;
+} 
+        }
+        
+        /* Mobile */
+
+        @media (max-width: 680px) {
+            :root {
+                --header-height: 78px;
+            }
+
+            .container {
+                width: min(
+                    calc(100% - 28px),
+                    var(--container)
+                );
+            }
+
+            .header-inner {
+                gap: 14px;
+            }
+
+            .brand {
+                flex: 1 1 auto;
+                min-width: 0;
+            }
+
+            .brand img {
+                width: min(100%, 255px);
+                height: 54px;
+
+                object-fit: contain;
+                object-position: left center;
+            }
+
+            .menu-toggle {
+                width: 44px;
+                height: 44px;
+            }
+
+            .main-nav {
+                top: 100%;
+            }
+
+            .hero {
+                padding-top:
+                    calc(var(--header-height) + 62px);
+
+                padding-bottom: 78px;
+            }
+
+            .hero h1 {
+                font-size: clamp(3rem, 14vw, 4.5rem);
+                line-height: 0.98;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                line-height: 1.68;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .button {
+                width: 100%;
+            }
+
+            .hero-details {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-panel {
+                padding: 26px 22px;
+            }
+
+            .section {
+                padding: 82px 0;
+            }
+            .faq {
+    padding: 78px 0;
+}
+
+.faq-question {
+    padding: 22px 0;
+
+    font-size: 0.94rem;
+}
+
+.faq-answer {
+    padding-right: 0;
+}
+
+            .approach-grid {
+                margin-top: 45px;
+            }
+
+            .asset-grid,
+.performance-grid,
+.principles-grid,
+.process-grid,
+.fee-details,
+.footer-links {
+    grid-template-columns: 1fr;
+}
+            .performance-card {
+    min-height: 155px;
+}
+
+.performance-status {
+    white-space: normal;
+}
+
+            .principles-panel {
+                padding: 28px 20px;
+            }
+
+            .process-card {
+                min-height: 225px;
+            }
+
+            .process-card h3 {
+                margin-top: 35px;
+            }
+
+            .about-visual {
+                min-height: 370px;
+            }
+
+            .about-badge {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .cta {
+                min-height: 430px;
+            }
+
+            .footer-brand img {
+                width: min(100%, 300px);
+                height: 76px;
+
+                object-fit: contain;
+                object-position: left center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+            .market-background {
+    opacity: 0.34;
+}
+
+.hero-market-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,5,6,0.30),
+            rgba(5,5,6,0.12)
+        ),
+        linear-gradient(
+            180deg,
+            rgba(5,5,6,0.04),
+            rgba(5,5,6,0.46)
+        );
+}
+        }
+
+        @media (max-width: 420px) {
+            .brand img {
+                width: min(100%, 225px);
+                height: 50px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.8rem, 13vw, 3.8rem);
+            }
+
+            .hero-panel h2 {
+                font-size: 1.7rem;
+            }
+
+            .footer-brand img {
+                width: min(100%, 260px);
+                height: 68px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-line"></div>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a
+                href="#home"
+                class="brand"
+                aria-label="Teske Capital home"
+            >
+                <img
+                    src="teskecapitallogo5.png"
+                    alt="Teske Capital"
+                >
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mainNavigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav
+    class="main-nav"
+    id="mainNavigation"
+    aria-label="Primary navigation"
+>
+
+<a href="#performance">Performance</a>
+
+<a href="#approach">Approach</a>
+
+<a href="#portfolio">Portfolio</a>
+
+<a href="investmentuniverse.html">Investment Universe</a>
+
+<a href="#principles">Principles</a>
+
+<a href="#process">Process</a>
+
+<a href="ips.html">Policy Statement</a>
+
+<a href="investorsletter.html">Investor Letters</a>
+
+<a href="founder.html">Founder</a>
+
+<a href="#about">About</a>
+
+    <a
+    href="contact.html"
+    class="nav-cta"
+>
+    Investor Access
+</a>
+
+</nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+<canvas
+    id="marketBackground"
+    class="market-background"
+    aria-hidden="true"
+></canvas>
+
+<div
+    class="hero-market-overlay"
+    aria-hidden="true"
+></div>
+            <div class="container hero-layout">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">
+                        Private Capital. Disciplined Allocation.
+                    </p>
+
+                    <h1>
+                        Compounding
+                        <span class="gray">wealth.</span>
+                        Built for the
+                        <span class="red">long term.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Teske Capital is a private investment firm
+                        focused on long-term capital appreciation
+                        through a carefully managed blend of public
+                        equities, digital assets, treasury securities,
+                        broad-market instruments, and strategic
+                        alternatives.
+                    </p>
+
+                    <div class="hero-actions">
+                       <a
+    href="contact.html"
+    class="button button-primary"
+>
+    Explore Investor Access
+
+    <span class="button-arrow">
+        →
+    </span>
+</a>
+
+                        <a
+                            href="#portfolio"
+                            class="button button-secondary"
+                        >
+                            View Investment Focus
+                        </a>
+                    </div>
+
+                    <div class="hero-details">
+                        <div>
+                            <strong>
+                                Multi-Asset
+                            </strong>
+
+                            <span>
+                                One disciplined portfolio
+                            </span>
+                        </div>
+
+                        <div>
+                            <strong>
+                                Privately Managed
+                            </strong>
+
+                            <span>
+                                Relationship-focused access
+                            </span>
+                        </div>
+
+                        <div>
+                            <strong>
+                                Long-Term Focus
+                            </strong>
+
+                            <span>
+                                Built around patient compounding
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="hero-panel reveal">
+                    <p class="panel-label">
+                        Our Investment Mandate
+                    </p>
+
+                    <h2>
+                        Seek growth without losing sight of risk.
+                    </h2>
+
+                    <p>
+                        We combine conviction with risk awareness,
+                        balancing opportunity across innovative assets,
+                        durable businesses, liquidity, and defensive
+                        holdings.
+                    </p>
+
+                    <div class="mandate-list">
+                        <div class="mandate-item">
+                            <span class="mandate-number">
+                                01
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Growth exposure
+                                </strong>
+
+                                <span>
+                                    Public equities and digital assets
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mandate-item">
+                            <span class="mandate-number">
+                                02
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Market participation
+                                </strong>
+
+                                <span>
+                                    Broad-market index instruments
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mandate-item">
+                            <span class="mandate-number">
+                                03
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Portfolio stability
+                                </strong>
+
+                                <span>
+                                    Treasury securities and gold exposure
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mandate-item">
+                            <span class="mandate-number">
+                                04
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Flexible allocation
+                                </strong>
+
+                                <span>
+                                    Positions may evolve with market conditions
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+       <section class="ticker" aria-label="Investment Universe">
+    <div class="ticker-track">
+
+        <div class="ticker-group">
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">BTC</div>
+                    <div class="ticker-type">Digital Asset</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">ETH</div>
+                    <div class="ticker-type">Digital Asset</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VGT</div>
+                    <div class="ticker-type">Technology ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VOO</div>
+                    <div class="ticker-type">S&amp;P 500 ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">QQQ</div>
+                    <div class="ticker-type">Nasdaq-100 ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VFH</div>
+                    <div class="ticker-type">Financials ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VHT</div>
+                    <div class="ticker-type">Health Care ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VIS</div>
+                    <div class="ticker-type">Industrials ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VPU</div>
+                    <div class="ticker-type">Utilities ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">BRK.B</div>
+                    <div class="ticker-type">Public Equity</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">O</div>
+                    <div class="ticker-type">Real Estate REIT</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">T-BILLS</div>
+                    <div class="ticker-type">Treasury Securities</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">GOLD</div>
+                    <div class="ticker-type">Gold ETFs</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+        </div>
+
+        <div class="ticker-group" aria-hidden="true">
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">BTC</div>
+                    <div class="ticker-type">Digital Asset</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">ETH</div>
+                    <div class="ticker-type">Digital Asset</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VGT</div>
+                    <div class="ticker-type">Technology ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VOO</div>
+                    <div class="ticker-type">S&amp;P 500 ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">QQQ</div>
+                    <div class="ticker-type">Nasdaq-100 ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VFH</div>
+                    <div class="ticker-type">Financials ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VHT</div>
+                    <div class="ticker-type">Health Care ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VIS</div>
+                    <div class="ticker-type">Industrials ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">VPU</div>
+                    <div class="ticker-type">Utilities ETF</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">BRK.B</div>
+                    <div class="ticker-type">Public Equity</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">O</div>
+                    <div class="ticker-type">Real Estate REIT</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">T-BILLS</div>
+                    <div class="ticker-type">Treasury Securities</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+
+            <div class="ticker-item">
+                <div>
+                    <div class="ticker-symbol">GOLD</div>
+                    <div class="ticker-type">Gold ETFs</div>
+                </div>
+                <span class="ticker-dot"></span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section
+    class="section performance"
+    id="performance"
+>
+    <div class="container performance-inner">
+        <div class="performance-header reveal">
+            <div class="performance-header-copy">
+                <p class="eyebrow">
+                    Proprietary Model Portfolio
+                </p>
+
+                <h2>
+                    Model Portfolio Performance
+                </h2>
+
+                <p class="performance-header-description">
+                    A transparent view of Teske Capital’s proprietary
+                    model portfolio before the acceptance of outside
+                    investor capital.
+                </p>
+            </div>
+
+            <div class="performance-status">
+                <span class="performance-status-dot"></span>
+
+                <span id="performanceUpdatedStatus">
+                    Awaiting portfolio data
+                </span>
+            </div>
+        </div>
+
+        <div
+            class="performance-grid reveal"
+            id="performanceMetrics"
+        >
+            <article class="performance-card primary">
+                <span class="performance-label">
+                    Current NAV
+                </span>
+
+                <strong
+                    class="performance-value"
+                    id="homepageCurrentNav"
+                >
+                    $100.00
+                </strong>
+
+                <span class="performance-detail">
+                    NAV per model unit
+                </span>
+            </article>
+
+            <article class="performance-card primary">
+                <span class="performance-label">
+                    Since-Inception Return
+                </span>
+
+                <strong
+                    class="performance-value"
+                    id="homepageSinceInception"
+                >
+                    0.00%
+                </strong>
+
+                <span class="performance-detail">
+                    Total portfolio return
+                </span>
+            </article>
+
+            <article class="performance-card">
+                <span class="performance-label">
+    Proprietary Assets
+</span>
+
+<strong
+    class="performance-value"
+    id="homepagePortfolioValue"
+>
+    $0.00
+</strong>
+
+<span class="performance-detail">
+    Current proprietary portfolio value
+</span>
+            </article>
+
+            <article class="performance-card">
+                <span class="performance-label">
+                    Net Gain / Loss
+                </span>
+
+                <strong
+                    class="performance-value"
+                    id="homepageNetGainLoss"
+                >
+                    $0.00
+                </strong>
+
+                <span class="performance-detail">
+                    Dollar change since inception
+                </span>
+            </article>
+
+            <article class="performance-card">
+                <span class="performance-label">
+                    Latest Weekly Return
+                </span>
+
+                <strong
+                    class="performance-value"
+                    id="homepageLatestWeekly"
+                >
+                    0.00%
+                </strong>
+
+                <span
+                    class="performance-detail"
+                    id="homepageLatestWeekDetail"
+                >
+                    No completed weeks
+                </span>
+            </article>
+
+            <article class="performance-card">
+                <span class="performance-label">
+                    Annualized Return
+                </span>
+
+                <strong
+                    class="performance-value"
+                    id="homepageAnnualizedReturn"
+                >
+                    0.00%
+                </strong>
+
+                <span class="performance-detail">
+                    Compounded from recorded results
+                </span>
+            </article>
+        </div>
+<div class="track-record reveal">
+
+    <div class="track-record-header">
+
+<h3>
+    Performance History
+</h3>
+
+<span>
+    Since Inception
+</span>
+
+    </div>
+
+    <div class="track-record-grid">
+
+        <article class="track-card">
+
+            <span class="track-year">
+                2024
+            </span>
+
+            <strong class="track-return performance-positive">
+                +9.80%
+            </strong>
+
+            <span class="track-detail">
+                Proprietary Capital
+            </span>
+
+        </article>
+
+        <article class="track-card">
+
+            <span class="track-year">
+                2025
+            </span>
+
+            <strong class="track-return performance-positive">
+                +12.20%
+            </strong>
+
+            <span class="track-detail">
+                Proprietary Capital
+            </span>
+
+        </article>
+
+        <article class="track-card">
+
+            <span class="track-year">
+                2026
+            </span>
+
+            <strong class="track-return">
+                In Progress
+            </strong>
+
+            <span class="track-detail">
+                Current Calendar Year
+            </span>
+
+        </article>
+
+    </div>
+
+</div>
+        <div
+            class="performance-empty hidden"
+            id="performanceEmptyState"
+        >
+            <strong>
+                Model portfolio has not been initialized
+            </strong>
+
+            Performance data will appear after the initial portfolio
+            value is entered in the Teske Capital NAV calculator.
+        </div>
+
+        <p class="performance-disclaimer reveal">
+            Performance reflects Teske Capital’s proprietary model
+            portfolio prior to accepting outside investor capital.
+            Results are unaudited and do not reflect management fees,
+            fund expenses, taxes, or the performance of any future
+            investment vehicle. Past performance does not guarantee
+            future results.
+        </p>
+    </div>
+</section>
+        <section
+            class="section approach"
+            id="approach"
+        >
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">
+                        The Teske Capital Approach
+                    </p>
+
+                    <h2>
+                        A modern private fund for a changing market.
+                    </h2>
+                </div>
+
+                <div class="approach-grid">
+                    <div class="approach-intro reveal">
+                        <p>
+                            Markets evolve. Our investment process is
+                            designed to evolve with them without
+                            abandoning discipline.
+                        </p>
+
+                        <p>
+                            We seek exposure to high-quality public
+                            companies, leading digital assets,
+                            broad-market instruments, treasury
+                            securities, and defensive holdings that may
+                            strengthen the portfolio across market
+                            cycles.
+                        </p>
+                    </div>
+
+                    <div class="approach-list reveal">
+                        <article class="approach-item">
+                            <span>
+                                01
+                            </span>
+
+                            <div>
+                                <h3>
+                                    Selective conviction
+                                </h3>
+
+                                <p>
+                                    We focus capital on assets we
+                                    understand rather than attempting
+                                    to participate in every market
+                                    trend.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="approach-item">
+                            <span>
+                                02
+                            </span>
+
+                            <div>
+                                <h3>
+                                    Cross-asset flexibility
+                                </h3>
+
+                                <p>
+                                    Our strategy is designed to evaluate
+                                    opportunities across traditional and
+                                    digital markets.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="approach-item">
+                            <span>
+                                03
+                            </span>
+
+                            <div>
+                                <h3>
+                                    Risk-aware construction
+                                </h3>
+
+                                <p>
+                                    Position sizing, liquidity,
+                                    diversification, volatility, and
+                                    downside exposure guide portfolio
+                                    construction.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="approach-item">
+                            <span>
+                                04
+                            </span>
+
+                            <div>
+                                <h3>
+                                    Long-term alignment
+                                </h3>
+
+                                <p>
+                                    We seek durable investor
+                                    relationships based on patience,
+                                    transparency, and shared
+                                    expectations.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <section
+    class="section portfolio"
+    id="portfolio"
+>
+    <div class="container">
+        <div class="section-heading centered reveal">
+            <p class="eyebrow">
+                Investment Universe
+            </p>
+
+            <h2>
+                Innovation, diversification, income, and resilience.
+            </h2>
+
+            <p>
+                The portfolio may include the following assets and
+                categories. Holdings and allocations may change as
+                market conditions, valuations, and opportunities evolve.
+            </p>
+        </div>
+
+        <div class="asset-grid">
+            <article class="asset-card reveal">
+                <span class="asset-icon">₿</span>
+
+                <p class="asset-category">
+                    Digital Asset
+                </p>
+
+                <h3>
+                    Bitcoin
+                </h3>
+
+                <span class="asset-description">
+                    Foundational digital asset and long-term store of value.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">Ξ</span>
+
+                <p class="asset-category">
+                    Digital Asset
+                </p>
+
+                <h3>
+                    Ethereum
+                </h3>
+
+                <span class="asset-description">
+                    Smart-contract infrastructure supporting digital applications.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">VGT</span>
+
+                <p class="asset-category">
+                    Technology ETF
+                </p>
+
+                <h3>
+                    Vanguard Information Technology ETF
+                </h3>
+
+                <span class="asset-description">
+                    Exposure to leading technology companies and innovation.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">VOO</span>
+
+                <p class="asset-category">
+                    Broad Market ETF
+                </p>
+
+                <h3>
+                    Vanguard S&amp;P 500 ETF
+                </h3>
+
+                <span class="asset-description">
+                    Diversified exposure to major U.S. public companies.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">QQQ</span>
+
+                <p class="asset-category">
+                    Growth ETF
+                </p>
+
+                <h3>
+                    Invesco QQQ Trust
+                </h3>
+
+                <span class="asset-description">
+                    Nasdaq-100 exposure emphasizing innovation and growth.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">VFH</span>
+
+                <p class="asset-category">
+                    Financials ETF
+                </p>
+
+                <h3>
+                    Vanguard Financials ETF
+                </h3>
+
+                <span class="asset-description">
+                    Exposure to banks, insurers, and financial-service companies.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">VHT</span>
+
+                <p class="asset-category">
+                    Health Care ETF
+                </p>
+
+                <h3>
+                    Vanguard Health Care ETF
+                </h3>
+
+                <span class="asset-description">
+                    Health-care businesses with defensive and growth characteristics.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">VIS</span>
+
+                <p class="asset-category">
+                    Industrials ETF
+                </p>
+
+                <h3>
+                    Vanguard Industrials ETF
+                </h3>
+
+                <span class="asset-description">
+                    Industrial companies supporting economic expansion.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">VPU</span>
+
+                <p class="asset-category">
+                    Utilities ETF
+                </p>
+
+                <h3>
+                    Vanguard Utilities ETF
+                </h3>
+
+                <span class="asset-description">
+                    Utility businesses providing income and defensive exposure.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">BRK</span>
+
+                <p class="asset-category">
+                    Public Equity
+                </p>
+
+                <h3>
+                    Berkshire Hathaway
+                </h3>
+
+                <span class="asset-description">
+                    Diversified operating businesses, insurance, and investments.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">O</span>
+
+                <p class="asset-category">
+                    Real Estate REIT
+                </p>
+
+                <h3>
+                    Realty Income
+                </h3>
+
+                <span class="asset-description">
+                    Monthly-dividend real estate investment trust focused on income.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">T</span>
+
+                <p class="asset-category">
+                    Treasury Securities
+                </p>
+
+                <h3>
+                    Treasury Bills
+                </h3>
+
+                <span class="asset-description">
+                    Liquidity, capital preservation, and short-duration income.
+                </span>
+            </article>
+
+            <article class="asset-card reveal">
+                <span class="asset-icon">Au</span>
+
+                <p class="asset-category">
+                    Alternative Exposure
+                </p>
+
+                <h3>
+                    Gold ETFs
+                </h3>
+
+                <span class="asset-description">
+                    Portfolio diversification and defensive asset exposure.
+                </span>
+            </article>
+        </div>
+    </div>
+</section>
+
+        <section
+            class="section principles"
+            id="principles"
+        >
+            <div class="container">
+                <div class="principles-panel">
+                    <div class="principles-copy reveal">
+                        <p class="eyebrow">
+                            Our Principles
+                        </p>
+
+                        <div class="section-heading">
+                            <h2>
+                                Capital deserves a clear philosophy.
+                            </h2>
+                        </div>
+
+                        <p>
+                            Our objective is not to predict every
+                            market move. It is to make thoughtful
+                            decisions, remain adaptable, and construct
+                            a portfolio capable of participating in
+                            long-term growth while maintaining the
+                            discipline required during difficult
+                            markets.
+                        </p>
+                    </div>
+
+                    <div class="principles-grid reveal">
+                        <article class="principle-card">
+                            <div class="principle-line"></div>
+
+                            <h3>
+                                Research before allocation
+                            </h3>
+
+                            <p>
+                                Every position should earn its place
+                                through a defined investment thesis and
+                                an understanding of associated risks.
+                            </p>
+                        </article>
+
+                        <article class="principle-card">
+                            <div class="principle-line"></div>
+
+                            <h3>
+                                Patience over noise
+                            </h3>
+
+                            <p>
+                                We prioritize durable opportunities over
+                                short-lived headlines, speculation, and
+                                market distractions.
+                            </p>
+                        </article>
+
+                        <article class="principle-card">
+                            <div class="principle-line"></div>
+
+                            <h3>
+                                Transparency over hype
+                            </h3>
+
+                            <p>
+                                Investors deserve direct communication
+                                about process, risk, performance, and
+                                changing market conditions.
+                            </p>
+                        </article>
+
+                        <article class="principle-card">
+                            <div class="principle-line"></div>
+
+                            <h3>
+                                Alignment over volume
+                            </h3>
+
+                            <p>
+                                We seek compatible investor
+                                relationships rather than pursuing
+                                assets under management at any cost.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="section process"
+            id="process"
+        >
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">
+                        A Deliberate Process
+                    </p>
+
+                    <h2>
+                        How we evaluate investment opportunities.
+                    </h2>
+                </div>
+
+                <div class="process-grid">
+                    <article class="process-card reveal">
+                        <span class="process-number">
+                            1
+                        </span>
+
+                        <h3>
+                            Identify
+                        </h3>
+
+                        <p>
+                            Locate assets with compelling long-term
+                            potential, strategic value, or portfolio
+                            utility.
+                        </p>
+                    </article>
+
+                    <article class="process-card reveal">
+                        <span class="process-number">
+                            2
+                        </span>
+
+                        <h3>
+                            Research
+                        </h3>
+
+                        <p>
+                            Evaluate fundamentals, liquidity,
+                            volatility, valuation, catalysts, and
+                            downside risk.
+                        </p>
+                    </article>
+
+                    <article class="process-card reveal">
+                        <span class="process-number">
+                            3
+                        </span>
+
+                        <h3>
+                            Allocate
+                        </h3>
+
+                        <p>
+                            Size positions according to conviction,
+                            market conditions, and overall portfolio
+                            exposure.
+                        </p>
+                    </article>
+
+                    <article class="process-card reveal">
+                        <span class="process-number">
+                            4
+                        </span>
+
+                        <h3>
+                            Review
+                        </h3>
+
+                        <p>
+                            Test the investment thesis and adjust when
+                            facts, valuations, or market conditions
+                            materially change.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+<section
+    class="section fees"
+    id="fees"
+>
+    <div class="container fees-inner">
+        <div class="fees-header reveal">
+            <p class="eyebrow">
+                Proposed Fee Structure
+            </p>
+
+            <h2>
+                Simple, transparent, and aligned.
+            </h2>
+
+            <p class="fees-header-description">
+                Teske Capital anticipates charging one straightforward
+                annual management fee based on the value of each
+                investor’s assets under management. The proposed
+                structure is designed to remain clear and easy to
+                understand without unnecessary layers of fees.
+            </p>
+        </div>
+
+        <div class="fee-layout">
+            <article class="fee-primary-card reveal">
+                <span class="fee-label">
+                    Proposed Annual Management Fee
+                </span>
+
+                <strong class="fee-rate">
+                    1.00%
+                </strong>
+
+                <span class="fee-rate-detail">
+                    Of each investor’s assets under management annually
+                </span>
+
+                <p>
+                    The management fee is intended to compensate Teske
+                    Capital for portfolio research, asset allocation,
+                    risk monitoring, investment oversight, performance
+                    reporting, and ongoing portfolio management.
+                </p>
+            </article>
+
+            <div class="fee-details">
+                <article class="fee-detail-card reveal">
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        Straightforward calculation
+                    </h3>
+
+                    <p>
+                        The proposed annual fee equals 1.00% of the
+                        applicable value of each investor’s managed
+                        capital.
+                    </p>
+
+                    <div class="fee-examples">
+                        <div class="fee-example">
+                            <span>
+                                $10,000 managed
+                            </span>
+
+                            <strong>
+                                $100 annually
+                            </strong>
+                        </div>
+
+                        <div class="fee-example">
+                            <span>
+                                $120,000 managed
+                            </span>
+
+                            <strong>
+                                $1,200 annually
+                            </strong>
+                        </div>
+
+                        <div class="fee-example">
+                            <span>
+                                $250,000 managed
+                            </span>
+
+                            <strong>
+                                $2,500 annually
+                            </strong>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="fee-detail-card reveal">
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        No proposed performance fee
+                    </h3>
+
+                    <p>
+                        Teske Capital does not currently anticipate
+                        charging an incentive or performance fee. The
+                        proposed compensation structure is limited to
+                        the annual management fee, subject to the final
+                        legal and offering documents.
+                    </p>
+                </article>
+
+                <article class="fee-detail-card reveal">
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        Proposed quarterly assessment
+                    </h3>
+
+                    <p>
+                        The annual fee may be calculated and charged
+                        quarterly in arrears, generally representing
+                        approximately 0.25% per quarter. The final
+                        calculation method will be defined in the
+                        governing documents.
+                    </p>
+                </article>
+
+                <article class="fee-detail-card reveal">
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        Full disclosure before investing
+                    </h3>
+
+                    <p>
+                        Investors will receive complete information
+                        regarding management fees, fund expenses,
+                        calculation methods, payment timing, and any
+                        applicable waivers before committing capital.
+                    </p>
+                </article>
+            </div>
+        </div>
+
+        <div class="fee-note reveal">
+            This proposed fee structure is presented for development
+            and planning purposes only. Teske Capital is not currently
+            accepting outside investor capital. Final fees, expenses,
+            billing practices, and investor terms will be established
+            in the applicable operating, subscription, offering, and
+            disclosure documents and may differ from the structure
+            described above.
+        </div>
+    </div>
+</section>
+        <section
+            class="section about"
+            id="about"
+        >
+            <div class="container about-grid">
+                <div class="about-visual reveal">
+                    <div class="about-badge">
+                        <strong>
+                            Teske Capital LLC
+                        </strong>
+
+                        <span>
+                            Private investment firm focused on
+                            disciplined long-term capital growth.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="about-copy reveal">
+                    <p class="eyebrow">
+                        Built on Conviction
+                    </p>
+
+                    <h2>
+                        A disciplined approach developed through real
+                        market experience.
+                    </h2>
+
+                    <p>
+                        Teske Capital was founded around a
+                        straightforward belief: patient capital,
+                        thoughtful research, adaptability, and
+                        disciplined risk management can create
+                        meaningful long-term opportunities.
+                    </p>
+
+                    <p>
+                        The firm is being developed as a private
+                        investment partnership for eligible investors
+                        who understand market risk and share a
+                        long-term approach to capital growth.
+                    </p>
+
+                    <div class="about-points">
+                        <div class="about-point">
+                            <span></span>
+
+                            <p>
+                                Focused on long-term capital
+                                appreciation rather than short-term
+                                asset gathering.
+                            </p>
+                        </div>
+
+                        <div class="about-point">
+                            <span></span>
+
+                            <p>
+                                Designed to evaluate opportunities
+                                across equities, digital assets,
+                                indexes, treasuries, and alternatives.
+                            </p>
+                        </div>
+
+                        <div class="about-point">
+                            <span></span>
+
+                            <p>
+                                Built around transparent communication,
+                                investor alignment, and responsible
+                                portfolio construction.
+                            </p>
+                        </div>
+                        <a
+    href="founder.html"
+    class="button button-secondary"
+    style="margin-top:32px;"
+>
+    Meet Our Founder
+
+    <span class="button-arrow">
+        →
+    </span>
+</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="cta"
+            id="get-started"
+        >
+            <div class="cta-content reveal">
+                <p class="eyebrow">
+                    Private Investor Access
+                </p>
+
+                <h2>
+                    Ready to invest?
+                </h2>
+
+                <p>
+                    Learn more about Teske Capital, our investment
+                    philosophy, and future investor eligibility.
+                </p>
+
+                <!-- Replace # with your future signup page URL. -->
+
+                <a
+    href="contact.html"
+    class="button button-light"
+>
+    Get Started
+
+    <span class="button-arrow">
+        →
+    </span>
+</a>
+            </div>
+        </section>
+   <section
+    class="faq"
+    id="faq"
+>
+    <div class="container faq-layout">
+        <div class="faq-intro reveal">
+            <p class="eyebrow">
+                Frequently Asked Questions
+            </p>
+
+            <h2>
+                Clear answers. No unnecessary complexity.
+            </h2>
+
+            <p>
+                Learn more about Teske Capital, our proprietary
+                model portfolio, investment philosophy, and plans
+                for future investor access.
+            </p>
+        </div>
+
+        <div class="faq-list reveal">
+            <details class="faq-item">
+                <summary class="faq-question">
+                    What is Teske Capital?
+                </summary>
+
+                <div class="faq-answer">
+                    Teske Capital is a private investment firm being
+                    developed around disciplined, long-term capital
+                    allocation. The strategy evaluates opportunities
+                    across public equities, exchange-traded funds,
+                    digital assets, Treasury securities, gold-related
+                    investments, real estate securities, and cash
+                    equivalents.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    Is Teske Capital currently accepting investors?
+                </summary>
+
+                <div class="faq-answer">
+                    No. Teske Capital is currently managing and
+                    documenting a proprietary model portfolio using
+                    the founder’s own capital. The firm is not
+                    presently accepting outside investor funds.
+                    Future access will depend on completion of the
+                    appropriate business, legal, regulatory, and
+                    operational requirements.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    What types of assets may the portfolio hold?
+                </summary>
+
+                <div class="faq-answer">
+                    The investment universe may include Bitcoin,
+                    Ethereum, broad-market and sector ETFs, Berkshire
+                    Hathaway, Realty Income, Treasury Bills, gold
+                    ETFs, cash equivalents, and other investments
+                    consistent with the firm’s strategy. Holdings
+                    and allocations may change as valuations,
+                    economic conditions, and market risks evolve.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    Does Teske Capital guarantee investment returns?
+                </summary>
+
+                <div class="faq-answer">
+                    No. No return, yield, annual percentage, or
+                    investment outcome is guaranteed. All investments
+                    involve risk, including the possible loss of
+                    principal. Historical and model-portfolio results
+                    do not guarantee future performance.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    How often is portfolio performance updated?
+                </summary>
+
+                <div class="faq-answer">
+                    The proprietary model portfolio is generally
+                    updated weekly. Teske Capital uses weekly reporting
+                    to provide a consistent view of NAV, portfolio
+                    value, gains or losses, and investment performance
+                    without placing excessive emphasis on daily market
+                    noise.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    What does NAV mean?
+                </summary>
+
+                <div class="faq-answer">
+                    NAV means net asset value. On this website, the
+                    model NAV begins at $100.00 per model unit and
+                    moves in proportion to the portfolio’s performance.
+                    For example, a NAV of $105.60 represents a 5.60%
+                    increase from the initial $100.00 model value.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    How does Teske Capital manage risk?
+                </summary>
+
+                <div class="faq-answer">
+                    Risk management may include diversification,
+                    position sizing, maintaining cash reserves,
+                    rebalancing among asset classes, monitoring
+                    liquidity, and increasing exposure to defensive
+                    holdings such as Treasury securities and gold
+                    during periods of elevated uncertainty.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    Why does the strategy include both equities and digital assets?
+                </summary>
+
+                <div class="faq-answer">
+                    Teske Capital uses a multi-asset framework designed
+                    to participate in different sources of long-term
+                    growth. Public equities and ETFs provide exposure
+                    to established businesses and broad markets, while
+                    Bitcoin and Ethereum may offer exposure to
+                    developing digital financial infrastructure.
+                    Digital-asset allocations may be reduced when
+                    market, liquidity, or economic risks increase.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    Where can I read the firm’s investment policy?
+                </summary>
+
+                <div class="faq-answer">
+                    The current Investment Policy Statement explains
+                    the firm’s objectives, eligible assets, allocation
+                    approach, liquidity policy, and risk-management
+                    principles.
+
+                    <a href="ips.html">
+                        Read the Policy Statement →
+                    </a>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    How can I express interest in investing later?
+                </summary>
+
+                <div class="faq-answer">
+                    A dedicated contact page will allow prospective
+                    investors to introduce themselves and request
+                    additional information. Submitting an inquiry will
+                    not constitute an investment commitment,
+                    subscription, offer, or acceptance by Teske Capital.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img
+                        src="teskecapitallogo5.png"
+                        alt="Teske Capital"
+                    >
+
+                    <p>
+                        Private capital. Disciplined allocation.
+                        Long-term focus.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                                        <div class="footer-column">
+                        <h3>
+                            Explore
+                        </h3>
+
+                        <a href="#approach">
+                            Approach
+                        </a>
+
+                        <a href="#portfolio">
+                            Investment Universe
+                        </a>
+
+                        <a href="#principles">
+                            Principles
+                        </a>
+
+                        <a href="#process">
+                            Process
+                        </a>
+
+                        <a href="founder.html">
+                            Meet Our Founder
+                        </a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>
+                            Connect
+                        </h3>
+
+                        <a href="mailto:info@teskecapital.com">
+                            info@teskecapital.com
+                        </a>
+
+                        <a href="contact.html">
+    Investor Interest
+</a>
+
+                        <a href="privacypolicy.html">
+                            Privacy Policy
+                        </a>
+
+                        <a href="termsofuse.html">
+                            Terms of Use
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p>
+                    This website is provided solely for informational
+                    purposes and does not constitute an offer to sell,
+                    a solicitation of an offer to purchase, or a
+                    recommendation regarding any security, investment
+                    product, or investment strategy. Any future
+                    offering by Teske Capital LLC or an affiliated
+                    investment vehicle will be made only through formal
+                    offering documents and only to investors who
+                    satisfy applicable legal and eligibility
+                    requirements. All investments involve risk,
+                    including possible loss of principal. Digital
+                    assets may involve substantial volatility,
+                    liquidity risk, custody risk, regulatory risk, and
+                    the risk of complete loss. References to assets,
+                    securities, or investment categories are
+                    illustrative and do not represent current holdings,
+                    recommendations, guarantees, or commitments. Past
+                    performance does not guarantee future results.
+                    Prospective investors should consult their own
+                    legal, tax, and financial advisers.
+                </p>
+            </div>
+
+            <div class="footer-bottom">
+                <span>
+                    © <span id="currentYear"></span>
+                    Teske Capital LLC. All rights reserved.
+                </span>
+
+                <div class="footer-bottom-links">
+                    <a href="#">
+                        Privacy
+                    </a>
+
+                    <a href="#">
+                        Terms
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const mainNavigation =
+            document.getElementById("mainNavigation");
+
+        const currentYear =
+            document.getElementById("currentYear");
+
+        currentYear.textContent =
+            new Date().getFullYear();
+        const NAV_STORAGE_KEY =
+    "teskeCapitalNavCalculatorV1";
+
+const HOMEPAGE_INITIAL_NAV = 100;
+
+const homepageCurrentNav =
+    document.getElementById(
+        "homepageCurrentNav"
+    );
+
+const homepageSinceInception =
+    document.getElementById(
+        "homepageSinceInception"
+    );
+
+const homepagePortfolioValue =
+    document.getElementById(
+        "homepagePortfolioValue"
+    );
+
+const homepageNetGainLoss =
+    document.getElementById(
+        "homepageNetGainLoss"
+    );
+
+const homepageLatestWeekly =
+    document.getElementById(
+        "homepageLatestWeekly"
+    );
+
+const homepageLatestWeekDetail =
+    document.getElementById(
+        "homepageLatestWeekDetail"
+    );
+
+const homepageAnnualizedReturn =
+    document.getElementById(
+        "homepageAnnualizedReturn"
+    );
+
+const performanceUpdatedStatus =
+    document.getElementById(
+        "performanceUpdatedStatus"
+    );
+
+const performanceMetrics =
+    document.getElementById(
+        "performanceMetrics"
+    );
+
+const performanceEmptyState =
+    document.getElementById(
+        "performanceEmptyState"
+    );
+
+function formatHomepageCurrency(value) {
+    return new Intl.NumberFormat(
+        "en-US",
+        {
+            style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }
+    ).format(Number(value) || 0);
+}
+
+function formatHomepagePercent(value) {
+    const number =
+        Number(value) || 0;
+
+    const sign =
+        number > 0 ? "+" : "";
+
+    return (
+        sign +
+        new Intl.NumberFormat(
+            "en-US",
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        ).format(number * 100) +
+        "%"
+    );
+}
+
+function formatHomepageDate(dateString) {
+    if (!dateString) {
+        return "No completed weeks";
+    }
+
+    return new Intl.DateTimeFormat(
+        "en-US",
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        }
+    ).format(
+        new Date(
+            dateString + "T00:00:00"
+        )
+    );
+}
+
+function setHomepagePerformanceClass(
+    element,
+    value
+) {
+    element.classList.remove(
+        "performance-positive",
+        "performance-negative",
+        "performance-neutral"
+    );
+
+    if (value > 0) {
+        element.classList.add(
+            "performance-positive"
+        );
+
+        return;
+    }
+
+    if (value < 0) {
+        element.classList.add(
+            "performance-negative"
+        );
+
+        return;
+    }
+
+    element.classList.add(
+        "performance-neutral"
+    );
+}
+
+function calculateHomepagePerformance(
+    calculatorData
+) {
+    const entries =
+        Array.isArray(calculatorData.entries)
+            ? calculatorData.entries
+                .slice()
+                .sort(
+                    function (
+                        firstEntry,
+                        secondEntry
+                    ) {
+                        return (
+                            new Date(
+                                firstEntry.weekEnding
+                            ) -
+                            new Date(
+                                secondEntry.weekEnding
+                            )
+                        );
+                    }
+                )
+            : [];
+
+    const initialCapital =
+        Number(
+            calculatorData.initialCapital
+        ) || 0;
+
+    let runningBalance =
+        initialCapital;
+
+    const rebuiltEntries =
+        entries.map(
+            function (entry) {
+                const startingBalance =
+                    runningBalance;
+
+                const profitLoss =
+                    Number(entry.profitLoss) || 0;
+
+                const endingBalance =
+                    startingBalance +
+                    profitLoss;
+
+                const weeklyReturn =
+                    startingBalance !== 0
+                        ? profitLoss /
+                            startingBalance
+                        : 0;
+
+                runningBalance =
+                    endingBalance;
+
+                return {
+                    ...entry,
+                    startingBalance,
+                    endingBalance,
+                    weeklyReturn
+                };
+            }
+        );
+
+    const initialUnits =
+        Number(
+            calculatorData.initialUnits
+        ) ||
+        (
+            initialCapital /
+            HOMEPAGE_INITIAL_NAV
+        );
+
+    const currentBalance =
+        rebuiltEntries.length > 0
+            ? rebuiltEntries[
+                rebuiltEntries.length - 1
+            ].endingBalance
+            : initialCapital;
+
+    const currentNav =
+        initialUnits > 0
+            ? currentBalance /
+                initialUnits
+            : HOMEPAGE_INITIAL_NAV;
+
+    const sinceInceptionReturn =
+        initialCapital > 0
+            ? currentBalance /
+                initialCapital -
+                1
+            : 0;
+
+    const netGainLoss =
+        currentBalance -
+        initialCapital;
+
+    const latestEntry =
+        rebuiltEntries.length > 0
+            ? rebuiltEntries[
+                rebuiltEntries.length - 1
+            ]
+            : null;
+
+    let annualizedReturn = 0;
+
+    if (
+        calculatorData.inceptionDate &&
+        latestEntry &&
+        sinceInceptionReturn > -1
+    ) {
+        const inceptionDate =
+            new Date(
+                calculatorData.inceptionDate +
+                "T00:00:00"
+            );
+
+        const latestDate =
+            new Date(
+                latestEntry.weekEnding +
+                "T00:00:00"
+            );
+
+        const elapsedWeeks =
+            (
+                latestDate -
+                inceptionDate
+            ) /
+            (
+                1000 *
+                60 *
+                60 *
+                24 *
+                7
+            );
+
+        if (elapsedWeeks > 0) {
+            annualizedReturn =
+                Math.pow(
+                    1 +
+                    sinceInceptionReturn,
+                    52 / elapsedWeeks
+                ) - 1;
+        }
+    }
+
+    return {
+        initialCapital,
+        currentBalance,
+        currentNav,
+        sinceInceptionReturn,
+        netGainLoss,
+        latestEntry,
+        annualizedReturn,
+        completedWeeks:
+            rebuiltEntries.length
+    };
+}
+
+async function loadHomepagePerformance() {
+    try {
+        /*
+         * The timestamp prevents browsers and GitHub Pages
+         * from displaying an older cached copy after an update.
+         */
+        const response = await fetch(
+            "nav-data.json?v=" + Date.now(),
+            {
+                cache: "no-store"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error(
+                "Unable to load nav-data.json. HTTP status: " +
+                response.status
+            );
+        }
+
+        const navData = await response.json();
+
+        if (
+            !navData ||
+            Number(navData.initialCapital) <= 0
+        ) {
+            performanceMetrics.classList.add(
+                "hidden"
+            );
+
+            performanceEmptyState.classList.remove(
+                "hidden"
+            );
+
+            performanceUpdatedStatus.textContent =
+                "Awaiting portfolio data";
+
+            return;
+        }
+
+        const currentNav =
+            Number(navData.currentNav) || 100;
+
+        const portfolioValue =
+            Number(navData.currentBalance) || 0;
+
+        const sinceInceptionReturn =
+            Number(navData.sinceInceptionReturn) || 0;
+
+        const netGainLoss =
+            Number(navData.cumulativeProfitLoss) || 0;
+
+        const latestWeeklyReturn =
+            Number(navData.latestWeeklyReturn) || 0;
+
+        const annualizedReturn =
+            Number(navData.annualizedReturn) || 0;
+
+        const completedWeeks =
+            Number(navData.completedWeeks) || 0;
+
+        performanceMetrics.classList.remove(
+            "hidden"
+        );
+
+        performanceEmptyState.classList.add(
+            "hidden"
+        );
+
+        homepageCurrentNav.textContent =
+            formatHomepageCurrency(
+                currentNav
+            );
+
+        homepageSinceInception.textContent =
+            formatHomepagePercent(
+                sinceInceptionReturn
+            );
+
+        homepagePortfolioValue.textContent =
+            formatHomepageCurrency(
+                portfolioValue
+            );
+
+        homepageNetGainLoss.textContent =
+            (
+                netGainLoss > 0
+                    ? "+"
+                    : ""
+            ) +
+            formatHomepageCurrency(
+                netGainLoss
+            );
+
+        homepageLatestWeekly.textContent =
+            formatHomepagePercent(
+                latestWeeklyReturn
+            );
+
+        homepageLatestWeekDetail.textContent =
+            navData.latestWeekEnding
+                ? "Week ending " +
+                    formatHomepageDate(
+                        navData.latestWeekEnding
+                    )
+                : "No completed weeks";
+
+        homepageAnnualizedReturn.textContent =
+            formatHomepagePercent(
+                annualizedReturn
+            );
+
+        setHomepagePerformanceClass(
+            homepageCurrentNav,
+            currentNav - 100
+        );
+
+        setHomepagePerformanceClass(
+            homepageSinceInception,
+            sinceInceptionReturn
+        );
+
+        setHomepagePerformanceClass(
+            homepageNetGainLoss,
+            netGainLoss
+        );
+
+        setHomepagePerformanceClass(
+            homepageLatestWeekly,
+            latestWeeklyReturn
+        );
+
+        setHomepagePerformanceClass(
+            homepageAnnualizedReturn,
+            annualizedReturn
+        );
+
+        performanceUpdatedStatus.textContent =
+            completedWeeks > 0
+                ? completedWeeks +
+                    (
+                        completedWeeks === 1
+                            ? " completed week"
+                            : " completed weeks"
+                    )
+                : "Portfolio initialized";
+    } catch (error) {
+        console.error(
+            "Could not load nav-data.json:",
+            error
+        );
+
+        performanceMetrics.classList.add(
+            "hidden"
+        );
+
+        performanceEmptyState.classList.remove(
+            "hidden"
+        );
+
+        performanceUpdatedStatus.textContent =
+            "Performance unavailable";
+    }
+}
+
+loadHomepagePerformance();
+        const marketCanvas =
+    document.getElementById("marketBackground");
+
+const marketContext =
+    marketCanvas.getContext("2d");
+
+let marketWidth = 0;
+let marketHeight = 0;
+let marketPixelRatio = 1;
+let marketAnimationFrame = null;
+let marketTime = 0;
+
+const prefersReducedMotion =
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+const marketParticles = [];
+const marketCandles = [];
+
+function createMarketParticle() {
+    return {
+        x: Math.random() * marketWidth,
+        y: Math.random() * marketHeight,
+        radius: Math.random() * 1.4 + 0.3,
+        speedX: Math.random() * 0.12 - 0.06,
+        speedY: Math.random() * 0.09 - 0.035,
+        opacity: Math.random() * 0.22 + 0.05
+    };
+}
+
+function createMarketCandle(index) {
+    const baseHeight =
+        marketHeight * 0.52;
+
+    const open =
+        baseHeight +
+        Math.sin(index * 0.75) * 36 +
+        Math.random() * 34 -
+        17;
+
+    const close =
+        open +
+        Math.random() * 50 -
+        25;
+
+    const high =
+        Math.min(open, close) -
+        Math.random() * 28 -
+        5;
+
+    const low =
+        Math.max(open, close) +
+        Math.random() * 28 +
+        5;
+
+    return {
+        open,
+        close,
+        high,
+        low
+    };
+}
+
+function initializeMarketScene() {
+    marketParticles.length = 0;
+    marketCandles.length = 0;
+
+    const particleCount =
+        marketWidth < 700 ? 24 : 46;
+
+    for (
+        let index = 0;
+        index < particleCount;
+        index += 1
+    ) {
+        marketParticles.push(
+            createMarketParticle()
+        );
+    }
+
+    const candleCount =
+        Math.ceil(marketWidth / 46) + 8;
+
+    for (
+        let index = 0;
+        index < candleCount;
+        index += 1
+    ) {
+        marketCandles.push(
+            createMarketCandle(index)
+        );
+    }
+}
+
+function resizeMarketCanvas() {
+    const hero =
+        marketCanvas.parentElement;
+
+    const heroRectangle =
+        hero.getBoundingClientRect();
+
+    marketPixelRatio =
+        Math.min(
+            window.devicePixelRatio || 1,
+            2
+        );
+
+    marketWidth =
+        Math.max(
+            1,
+            Math.floor(heroRectangle.width)
+        );
+
+    marketHeight =
+        Math.max(
+            1,
+            Math.floor(heroRectangle.height)
+        );
+
+    marketCanvas.width =
+        Math.floor(
+            marketWidth * marketPixelRatio
+        );
+
+    marketCanvas.height =
+        Math.floor(
+            marketHeight * marketPixelRatio
+        );
+
+    marketCanvas.style.width =
+        `${marketWidth}px`;
+
+    marketCanvas.style.height =
+        `${marketHeight}px`;
+
+    marketContext.setTransform(
+        marketPixelRatio,
+        0,
+        0,
+        marketPixelRatio,
+        0,
+        0
+    );
+
+    initializeMarketScene();
+}
+
+function drawMarketGrid() {
+    const gridSize = 72;
+
+    const horizontalOffset =
+        (marketTime * 3) % gridSize;
+
+    const verticalOffset =
+        (marketTime * 1.3) % gridSize;
+
+    marketContext.save();
+
+    marketContext.strokeStyle =
+    "rgba(255, 255, 255, 0.10)";
+
+    marketContext.lineWidth = 1;
+
+    marketContext.beginPath();
+
+    for (
+        let x = -gridSize + horizontalOffset;
+        x < marketWidth + gridSize;
+        x += gridSize
+    ) {
+        marketContext.moveTo(x, 0);
+        marketContext.lineTo(
+            x,
+            marketHeight
+        );
+    }
+
+    for (
+        let y = -gridSize + verticalOffset;
+        y < marketHeight + gridSize;
+        y += gridSize
+    ) {
+        marketContext.moveTo(0, y);
+        marketContext.lineTo(
+            marketWidth,
+            y
+        );
+    }
+
+    marketContext.stroke();
+    marketContext.restore();
+}
+
+function drawMarketCandles() {
+    const candleSpacing = 46;
+    const candleWidth = 9;
+
+    const movement =
+        (marketTime * 8) % candleSpacing;
+
+    marketContext.save();
+
+    marketCandles.forEach(
+        function (candle, index) {
+            const x =
+                index * candleSpacing -
+                movement -
+                candleSpacing;
+
+            if (
+                x < -30 ||
+                x > marketWidth + 30
+            ) {
+                return;
+            }
+
+            const waveOffset =
+                Math.sin(
+                    marketTime * 0.8 +
+                    index * 0.5
+                ) * 8;
+
+            const open =
+                candle.open + waveOffset;
+
+            const close =
+                candle.close + waveOffset;
+
+            const high =
+                candle.high + waveOffset;
+
+            const low =
+                candle.low + waveOffset;
+
+            const isPositive =
+                close < open;
+
+            const candleColor =
+                isPositive
+                    ? "rgba(223, 38, 56, 0.55)"
+                    : "rgba(175, 175, 185, 0.32)";
+
+            marketContext.strokeStyle =
+                candleColor;
+
+            marketContext.fillStyle =
+                candleColor;
+
+            marketContext.lineWidth = 1;
+
+            marketContext.beginPath();
+
+            marketContext.moveTo(
+                x + candleWidth / 2,
+                high
+            );
+
+            marketContext.lineTo(
+                x + candleWidth / 2,
+                low
+            );
+
+            marketContext.stroke();
+
+            const bodyTop =
+                Math.min(open, close);
+
+            const bodyHeight =
+                Math.max(
+                    3,
+                    Math.abs(close - open)
+                );
+
+            marketContext.fillRect(
+                x,
+                bodyTop,
+                candleWidth,
+                bodyHeight
+            );
+        }
+    );
+
+    marketContext.restore();
+}
+
+function drawMarketLine() {
+    const pointCount = 90;
+    const centerY =
+        marketHeight * 0.47;
+
+    marketContext.save();
+
+    marketContext.beginPath();
+
+    for (
+        let index = 0;
+        index <= pointCount;
+        index += 1
+    ) {
+        const progress =
+            index / pointCount;
+
+        const x =
+            progress * marketWidth;
+
+        const waveOne =
+            Math.sin(
+                progress * 11 +
+                marketTime * 0.5
+            ) * 24;
+
+        const waveTwo =
+            Math.sin(
+                progress * 25 -
+                marketTime * 0.24
+            ) * 9;
+
+        const trend =
+            progress * -42;
+
+        const y =
+            centerY +
+            waveOne +
+            waveTwo +
+            trend;
+
+        if (index === 0) {
+            marketContext.moveTo(x, y);
+        } else {
+            marketContext.lineTo(x, y);
+        }
+    }
+
+    marketContext.strokeStyle =
+    "rgba(242, 72, 89, 0.85)";
+
+    marketContext.lineWidth = 8;
+
+    marketContext.shadowColor =
+        "rgba(223, 38, 56, 0.34)";
+
+    marketContext.shadowBlur = 18;
+
+    marketContext.stroke();
+
+    marketContext.shadowBlur = 0;
+
+    marketContext.strokeStyle =
+        "rgba(242, 72, 89, 0.4)";
+
+    marketContext.lineWidth = 1.5;
+
+    marketContext.stroke();
+
+    marketContext.restore();
+}
+
+function drawMarketParticles() {
+    marketContext.save();
+
+    marketParticles.forEach(
+        function (particle) {
+            particle.x +=
+                particle.speedX;
+
+            particle.y +=
+                particle.speedY;
+
+            if (particle.x < -10) {
+                particle.x =
+                    marketWidth + 10;
+            }
+
+            if (
+                particle.x >
+                marketWidth + 10
+            ) {
+                particle.x = -10;
+            }
+
+            if (particle.y < -10) {
+                particle.y =
+                    marketHeight + 10;
+            }
+
+            if (
+                particle.y >
+                marketHeight + 10
+            ) {
+                particle.y = -10;
+            }
+
+            marketContext.beginPath();
+
+            marketContext.arc(
+                particle.x,
+                particle.y,
+                particle.radius,
+                0,
+                Math.PI * 2
+            );
+
+            marketContext.fillStyle =
+                `rgba(
+                    225,
+                    225,
+                    230,
+                    ${particle.opacity}
+                )`;
+
+            marketContext.fill();
+        }
+    );
+
+    marketContext.restore();
+}
+
+function drawMarketScene() {
+
+    marketContext.clearRect(
+        0,
+        0,
+        marketWidth,
+        marketHeight
+    );
+
+    drawMarketParticles();
+}
+
+function animateMarketScene() {
+    marketTime += 0.008;
+
+    drawMarketScene();
+
+    marketAnimationFrame =
+        window.requestAnimationFrame(
+            animateMarketScene
+        );
+}
+
+resizeMarketCanvas();
+
+if (prefersReducedMotion) {
+    drawMarketScene();
+} else {
+    animateMarketScene();
+}
+
+let marketResizeTimer;
+
+window.addEventListener(
+    "resize",
+    function () {
+        window.clearTimeout(
+            marketResizeTimer
+        );
+
+        marketResizeTimer =
+            window.setTimeout(
+                resizeMarketCanvas,
+                120
+            );
+    }
+);
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+                const isOpen =
+                    mainNavigation.classList.toggle("open");
+
+                menuToggle.classList.toggle(
+                    "active",
+                    isOpen
+                );
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+                document.body.classList.toggle(
+                    "menu-open",
+                    isOpen
+                );
+            }
+        );
+
+        document
+            .querySelectorAll(".main-nav a")
+            .forEach(function (link) {
+                link.addEventListener(
+                    "click",
+                    function () {
+                        mainNavigation.classList.remove(
+                            "open"
+                        );
+
+                        menuToggle.classList.remove(
+                            "active"
+                        );
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        document.body.classList.remove(
+                            "menu-open"
+                        );
+                    }
+                );
+            });
+
+        document.addEventListener(
+            "click",
+            function (event) {
+                const clickedMenu =
+                    menuToggle.contains(event.target);
+
+                const clickedNavigation =
+                    mainNavigation.contains(event.target);
+
+                if (
+                    mainNavigation.classList.contains("open") &&
+                    !clickedMenu &&
+                    !clickedNavigation
+                ) {
+                    mainNavigation.classList.remove(
+                        "open"
+                    );
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    document.body.classList.remove(
+                        "menu-open"
+                    );
+                }
+            }
+        );
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealObserver =
+            new IntersectionObserver(
+                function (entries, observer) {
+                    entries.forEach(
+                        function (entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        }
+                    );
+                },
+                {
+                    threshold: 0.1,
+                    rootMargin:
+                        "0px 0px -35px 0px"
+                }
+            );
+
+        revealElements.forEach(
+            function (element) {
+                revealObserver.observe(element);
+            }
+        );
+
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach(function (anchor) {
+                anchor.addEventListener(
+                    "click",
+                    function (event) {
+                        const targetId =
+                            this.getAttribute("href");
+
+                        if (
+                            targetId === "#" ||
+                            targetId.length < 2
+                        ) {
+                            return;
+                        }
+
+                        const target =
+                            document.querySelector(
+                                targetId
+                            );
+
+                        if (!target) {
+                            return;
+                        }
+
+                        event.preventDefault();
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+                    }
+                );
+            });
+    </script>
+</body>
+</html>
